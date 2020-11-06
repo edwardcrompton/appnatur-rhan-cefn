@@ -1,0 +1,12 @@
+id: species_stubs
+label: 'Species stub migration'
+source:
+  plugin: csv
+  path: modules/custom/termau_migrate/sources/species.csv
+  ids: [Latin name]
+process:
+  title: creative_title
+  body: engaging_content
+destination:
+  plugin: 'entity:node'
+  default_bundle: species
