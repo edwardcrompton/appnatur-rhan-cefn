@@ -1,0 +1,18 @@
+uuid: 456eb805-a376-4a7d-a7c3-908287627494
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.species
+id: node.species.title
+field_name: title
+entity_type: node
+bundle: species
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,29 @@
+uuid: 25b8746f-9b0a-4437-8ba6-5ad90fbe9574
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.species.body
+    - node.type.species
+  module:
+    - text
+    - user
+id: node.species.default
+targetEntityType: node
+bundle: species
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
