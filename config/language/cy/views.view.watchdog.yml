@@ -3,40 +3,15 @@ display:
     display_options:
       exposed_form:
         options:
-          submit_button: Hidlydd
           reset_button_label: Ailosod
-          exposed_sorts_label: 'Dosbarthu drwy'
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Eitemau pob tudalen'
-            offset_label: Ongli
-          tags:
-            previous: '<<'
-            next: '>>'
       fields:
-        severity:
-          label: Difrifoldeb
         type:
           label: Math
-        timestamp:
-          label: Dyddiad
         message:
           label: Neges
-        name:
-          label: Defnyddiwr
         link:
           label: Gweithrediad
       filters:
         type:
           expose:
             label: Math
-        severity:
-          expose:
-            label: Difrifoldeb
-      empty:
-        area:
-          admin_label: 'Dim negeseuon log ar gael.'
-          content: 'Dim negeseuon log ar gael.'
-  page:
-    display_title: Tudalen
