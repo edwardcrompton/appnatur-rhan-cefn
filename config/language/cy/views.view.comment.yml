@@ -4,64 +4,17 @@ display:
     display_options:
       exposed_form:
         options:
-          submit_button: Ceisio
           reset_button_label: Ailosod
-          exposed_sorts_label: 'Dosbarthu drwy'
-      pager:
-        options:
-          tags:
-            previous: '< blaenorol'
-            next: 'nesaf >'
-            first: Cyntaf
-            last: 'olaf >>'
-          expose:
-            items_per_page_label: 'Eitemau pob tudalen'
-            offset_label: Ongli
       fields:
-        subject:
-          label: Testun
-        name:
-          label: Awdur
-        entity_id:
-          label: 'Wedi ei gofnodi yn'
-        changed:
-          label: Newidwyd
         operations:
           label: Gweithrediad
-      filters:
-        subject:
-          expose:
-            label: Testun
-        langcode:
-          expose:
-            label: Iaith
       title: Sylwadau
-      empty:
-        area_text_custom:
-          content: 'Dim sylwadau ar gael'
-      use_more_text: mwy
   page_published:
-    display_title: 'Sylwadau wedi eu cyhoeddi'
     display_options:
       menu:
         title: Sylwadau
   page_unapproved:
     display_options:
-      filters:
-        subject:
-          expose:
-            label: Testun
-        langcode:
-          expose:
-            label: Iaith
       fields:
-        subject:
-          label: Testun
-        name:
-          label: Awdur
-        entity_id:
-          label: 'Wedi ei gofnodi yn'
-        changed:
-          label: Newidwyd
         operations:
           label: Gweithrediad
