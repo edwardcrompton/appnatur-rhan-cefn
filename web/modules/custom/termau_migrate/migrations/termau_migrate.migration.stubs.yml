@@ -30,8 +30,15 @@ source:
       label: 'Latin name'
 
 process:
-  title: latin
+  title:
+    source: latin
+    language: 'la'
+  langcode:
+    plugin: default_value
+    default_value: 'la'
 
 destination:
   plugin: entity:node
   default_bundle: species
+
+migration_dependencies: {}
