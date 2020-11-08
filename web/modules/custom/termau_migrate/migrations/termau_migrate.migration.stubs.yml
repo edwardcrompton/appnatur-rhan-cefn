@@ -1,11 +1,9 @@
-id: species_stub
+id: stubs
 label: Species stub migration from CSV
-migration_group: default
-
 source:
   plugin: 'csv'
   # Full path to the file.
-  path: '/app/web/modules/custom/termau_migration/data/species.csv'
+  path: '/app/web/modules/custom/termau_migrate/data/species.csv'
   # Column delimiter. Comma (,) by default.
   delimiter: ','
   # Field enclosure. Double quotation marks (") by default.
@@ -16,8 +14,7 @@ source:
   # The column(s) to use as a key. Each column specified will 
   # create an index in the migration table and too many columns 
   # may throw an index size error.
-  ids:
-    - id
+  ids: [id]
   # Here we identify the columns of interest in the source file. 
   # Each numeric key is the 0-based index of the column. 
   # For each column, the key below is the field name assigned to 
@@ -29,14 +26,12 @@ source:
       name: id
       label: 'Unique Id'
     1:
-      name: name
-      label: 'Name'
+      name: latin
+      label: 'Latin name'
 
 process:
-  title: title
-  type:
-    plugin: default_value
-    default_value: species
+  title: latin
 
 destination:
   plugin: entity:node
+  default_bundle: species

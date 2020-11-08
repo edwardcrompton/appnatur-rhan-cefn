@@ -22,3 +22,8 @@ To run a migration:
 To rollback a migration:
 
 `lando drush migrate:rollback`
+
+## Troubleshooting
+
+If a migration does not show up when running `lando drush migrate:status` then
+check that all plugins exist and the modules that supply them are enabled.
