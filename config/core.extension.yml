@@ -28,6 +28,7 @@ module:
   menu_ui: 0
   migrate: 0
   migrate_plus: 0
+  migrate_source_csv: 0
   migrate_tools: 0
   node: 0
   options: 0
@@ -47,6 +48,7 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  content_translation: 10
   views: 10
   standard: 1000
 theme:
