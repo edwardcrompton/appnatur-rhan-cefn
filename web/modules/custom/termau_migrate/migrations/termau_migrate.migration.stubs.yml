@@ -1,5 +1,7 @@
 id: stubs
 label: Species stub migration from CSV
+dependencies: {}
+langcode: en
 source:
   plugin: 'csv'
   # Full path to the file.
@@ -14,7 +16,8 @@ source:
   # The column(s) to use as a key. Each column specified will 
   # create an index in the migration table and too many columns 
   # may throw an index size error.
-  ids: [id]
+  ids: 
+    - id
   # Here we identify the columns of interest in the source file. 
   # Each numeric key is the 0-based index of the column. 
   # For each column, the key below is the field name assigned to 
@@ -30,15 +33,9 @@ source:
       label: 'Latin name'
 
 process:
-  title:
-    source: latin
-    language: 'la'
-  langcode:
-    plugin: default_value
-    default_value: 'la'
+  title: latin
+  field_scientific_name: latin
 
 destination:
   plugin: entity:node
   default_bundle: species
-
-migration_dependencies: {}
