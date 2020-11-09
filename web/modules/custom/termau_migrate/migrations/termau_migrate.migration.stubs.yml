@@ -16,7 +16,7 @@ source:
   # The column(s) to use as a key. Each column specified will 
   # create an index in the migration table and too many columns 
   # may throw an index size error.
-  ids: 
+  ids:
     - id
   # Here we identify the columns of interest in the source file. 
   # Each numeric key is the 0-based index of the column. 
