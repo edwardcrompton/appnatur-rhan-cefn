@@ -23,21 +23,12 @@ source:
     1:
       name: latin
       label: 'Latin name'
-
 process:
   title: latin
   field_scientific_name: latin
-  nid:
-    plugin: migration_lookup
-    source: id
-    migration: stubs
   langcode:
      plugin: default_value
      default_value: 'en'
 destination:
   plugin: 'entity:node'
   default_bundle: species
-  translations: true
-migration_dependencies:
-  required:
-    - stubs

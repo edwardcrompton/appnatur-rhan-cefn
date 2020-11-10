@@ -29,15 +29,16 @@ process:
   field_scientific_name: latin
   nid:
     plugin: migration_lookup
-    source: tnid
-    migration: stubs
+    source: id
+    migration: species_en
   langcode:
      plugin: default_value
      default_value: 'cy'
+  content_translation_source: 'en'
 destination:
   plugin: 'entity:node'
   default_bundle: species
   translations: true
 migration_dependencies:
   required:
-    - stubs
+    - species_en
