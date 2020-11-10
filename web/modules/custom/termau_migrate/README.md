@@ -3,11 +3,7 @@
 ## Editing migrations
 
 When an edit has been made to a migration yml file in the migrations folder,
-migrations must be reimported with the following command:
-
-`lando drush cim --partial --source=/app/web/modules/custom/termau_migrate/migrations`
-
-It seems to be necessary to clear the cache after reimporting the migration:
+migrations must be reimported by clearing the cache:
 
 `lando drush cr`
 
@@ -17,11 +13,16 @@ To view available migrations:
 
 To run a migration:
 
-`lando drush migrate:import`
+`lando drush migrate:import species_en`
 
 To rollback a migration:
 
-`lando drush migrate:rollback`
+`lando drush migrate:rollback species_en`
+
+The migrations have dependencies on each other. All migrations in a group can
+be run in order of dependencies with this:
+
+`lando drush migrate:import --group=species`
 
 ## Troubleshooting
 

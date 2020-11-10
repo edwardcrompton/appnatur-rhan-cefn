@@ -1,4 +1,5 @@
 id: species_cy
+migration_group: species
 label: 'Species node migration Welsh'
 source:
   plugin: 'csv'

@@ -1,4 +1,5 @@
 id: species_en
+migration_group: species
 label: 'Species node migration English'
 source:
   plugin: 'csv'

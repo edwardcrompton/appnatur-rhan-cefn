@@ -1,0 +1,8 @@
+id: species
+label: Species migrations
+description: Species migrations from Llen Natur data.
+source_type: CSV files
+dependencies:
+  enforced:
+    module:
+      - migrate_source_csv
