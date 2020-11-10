@@ -1,6 +1,25 @@
+label: 'Taxonomy term'
 display:
   default:
     display_options:
       exposed_form:
         options:
+          submit_button: Apply
           reset_button_label: Ailosod
+          exposed_sorts_label: 'Sort by'
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per page'
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
+      arguments:
+        tid:
+          exception:
+            title: All
+  feed_1:
+    display_title: Feed
+  page_1:
+    display_title: Page

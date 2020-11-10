@@ -1,13 +1,46 @@
+label: Files
 display:
   default:
     display_options:
       exposed_form:
         options:
+          submit_button: Filter
           reset_button_label: Ailosod
+          exposed_sorts_label: 'Sort by'
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per page'
+            offset_label: Offset
       fields:
+        filename:
+          label: Name
+        filesize:
+          label: Size
         status:
           label: Statws
+          settings:
+            format_custom_false: Temporary
+            format_custom_true: Permanent
+        created:
+          label: 'Upload date'
       filters:
         status:
           expose:
             label: Statws
+      title: Files
+  page_1:
+    display_options:
+      menu:
+        title: Files
+  page_2:
+    display_options:
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per page'
+            offset_label: Offset
+      arguments:
+        fid:
+          exception:
+            title: All
