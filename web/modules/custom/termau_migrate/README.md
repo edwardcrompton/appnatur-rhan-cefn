@@ -27,4 +27,5 @@ be run in order of dependencies with this:
 ## Troubleshooting
 
 If a migration does not show up when running `lando drush migrate:status` then
-check that all plugins exist and the modules that supply them are enabled.
+check that all plugins exist and the modules that supply them are enabled. If
+the source plugin is missing, the migration will be filtered out from the list.
