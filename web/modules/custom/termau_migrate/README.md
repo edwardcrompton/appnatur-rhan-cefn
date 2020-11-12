@@ -7,6 +7,11 @@ migrations must be reimported by clearing the cache:
 
 `lando drush cr`
 
+If migrations are placed in the config/install folder they need to be imported
+into config before changes take effect:
+
+`lando drush cim --partial --source=/app/web/modules/custom/termau_migrate/config/install`
+
 To view available migrations:
 
 `lando drush migrate:status`
