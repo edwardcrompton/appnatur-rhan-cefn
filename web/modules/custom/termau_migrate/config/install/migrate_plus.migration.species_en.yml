@@ -2,7 +2,9 @@ id: species_en
 label: 'Species node migration English'
 migration_group: species
 process:
-  title: latin
+  title:
+    plugin: translate_name
+    source: latin
   field_scientific_name: latin
   langcode:
      plugin: default_value
