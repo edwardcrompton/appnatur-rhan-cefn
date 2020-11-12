@@ -2,11 +2,16 @@ id: species
 label: Species migrations
 description: Species migrations from Llen Natur data.
 source_type: CSV files
+
+# Here we add any default configuration settings to be shared among all
+# migrations in the group. For this example, the source tables are in the
+# Drupal (default) database, but usually if your source data is in a
+# database it will be external.
 shared_configuration:
   source:
-    plugin: 'csv'
+    plugin: csv
     # Full path to the file.
-    #path: '/app/web/modules/custom/termau_migrate/data/species.csv'
+    path: '/app/web/modules/custom/termau_migrate/data/species.csv'
     # Column delimiter. Comma (,) by default.
     delimiter: ','
     # Field enclosure. Double quotation marks (") by default.
@@ -27,6 +32,9 @@ shared_configuration:
         name: latin
         label: 'Latin name'
 
+# As with the migration configuration (see beer_term), we add an enforced
+# dependency so the migration_group configuration will be removed on module
+# uninstall.
 dependencies:
   enforced:
     module:
