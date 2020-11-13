@@ -12,6 +12,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "path",
+            "url": "web/modules/custom/termau_migrate"
         }
     ],
     "require": {
@@ -22,6 +26,7 @@
         "drupal/migrate_plus": "^5.1",
         "drupal/migrate_source_csv": "^3.4",
         "drupal/migrate_tools": "^5.0",
+        "drupal/termau_migrate": "dev-main",
         "drush/drush": "^10.3"
     },
     "conflict": {

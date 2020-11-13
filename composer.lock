@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d7df6e236e91b4e002fb66b6ecd24f1",
+    "content-hash": "3cf18379fa18a57a92cb81008b7db06a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1928,6 +1928,33 @@
             }
         },
         {
+            "name": "drupal/termau_migrate",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "web/modules/custom/termau_migrate",
+                "reference": "82c7016bcf24b9813c84dcba30b6cff9617dfe72"
+            },
+            "require": {
+                "edwardcrompton/porthtermau": "dev-main",
+                "php": ">=7.3"
+            },
+            "type": "drupal-custom-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Edward Crompton",
+                    "email": "edward@ebwc.co.uk"
+                }
+            ],
+            "description": "Custom migrate scripts for Porth Termau data",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "drush/drush",
             "version": "10.3.5",
             "source": {
@@ -2067,6 +2094,39 @@
                 }
             ],
             "time": "2020-10-05T11:50:13+00:00"
+        },
+        {
+            "name": "edwardcrompton/porthtermau",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/edwardcrompton/porthtermau.git",
+                "reference": "3c850ca776d641c76424e18564028f3ed1511ed4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/edwardcrompton/porthtermau/zipball/3c850ca776d641c76424e18564028f3ed1511ed4",
+                "reference": "3c850ca776d641c76424e18564028f3ed1511ed4",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Edward Crompton",
+                    "email": "edward@ebwc.co.uk"
+                }
+            ],
+            "description": "API wrapper for the Porth Termau service",
+            "support": {
+                "issues": "https://github.com/edwardcrompton/porthtermau/issues",
+                "source": "https://github.com/edwardcrompton/porthtermau/tree/main"
+            },
+            "time": "2020-11-13T12:19:47+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -6069,10 +6129,12 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/termau_migrate": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
