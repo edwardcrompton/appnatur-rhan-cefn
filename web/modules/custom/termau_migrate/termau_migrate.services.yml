@@ -1,3 +1,0 @@
-services:
-  termau_migrate.porthtermau:
-    class: \PorthTermau\PorthTermau

@@ -8,6 +8,7 @@ use Drupal\migrate\Row;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\termau_migrate\DataSourceApiInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use PorthTermau\PorthTermau;
 
 /**
  * Perform custom value transformations.
@@ -25,26 +26,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @endcode
  *
  */
-class TranslateName extends ProcessPluginBase implements ContainerFactoryPluginInterface {
+class TranslateName extends ProcessPluginBase {
 
   /**
-   * {inheritdoc}
+   * @{inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, DataSourceApiInterface $dataSourceApi) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->$dataSourceApi = $dataSourceApi;
-  }
-
-  /**
-   * {inheritdoc}
-   */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $container->get('termau_migrate.porthtermau')
-    );
+  public function __construct() {
+    $this->dataSourceApi = $this->createDataApi();
   }
 
   /**
@@ -55,6 +43,16 @@ class TranslateName extends ProcessPluginBase implements ContainerFactoryPluginI
     $language = 'en';
     $this->dataSourceApi->translate($value, $language);
     return $value;
+  }
+
+  /**
+   * Construct a new Data API instance.
+   *
+   * @return PortTermau
+   *   A PorthTermu API wrapper.
+   */
+  protected function createDataApi() {
+    return new PorthTermau();
   }
 
 }
