@@ -1,0 +1,14 @@
+id: species_en
+label: 'Species node migration English'
+migration_group: species
+process:
+  title:
+    plugin: translate_name
+    source: latin
+  field_scientific_name: latin
+  langcode:
+     plugin: default_value
+     default_value: 'en'
+destination:
+  plugin: 'entity:node'
+  default_bundle: species

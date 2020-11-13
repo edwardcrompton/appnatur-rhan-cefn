@@ -1,0 +1,42 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Ailosod
+          exposed_sorts_label: 'Sort by'
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per page'
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
+      fields:
+        severity:
+          label: Severity
+        type:
+          label: Math
+        timestamp:
+          label: Date
+        message:
+          label: Neges
+        name:
+          label: User
+        link:
+          label: Gweithrediad
+      filters:
+        type:
+          expose:
+            label: Math
+        severity:
+          expose:
+            label: Severity
+      empty:
+        area:
+          admin_label: 'No log messages available.'
+          content: 'No log messages available.'
+  page:
+    display_title: Page

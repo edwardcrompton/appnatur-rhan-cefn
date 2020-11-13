@@ -1,0 +1,9 @@
+type: module
+name: Termau Migrate
+description: 'Migrations from the Porth Termau API'
+package: Migration
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  - drupal:migrate
+  - drupal:migrate_source_csv
+  - migrate_plus:migrate_plus

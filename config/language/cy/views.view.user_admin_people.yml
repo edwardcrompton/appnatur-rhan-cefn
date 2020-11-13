@@ -1,0 +1,54 @@
+label: People
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Ailosod
+          exposed_sorts_label: 'Sort by'
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per page'
+            offset_label: Offset
+      fields:
+        name:
+          label: Username
+        status:
+          label: Statws
+          settings:
+            format_custom_true: Active
+            format_custom_false: Blocked
+        roles_target_id:
+          label: Roles
+        created:
+          label: 'Member for'
+        access:
+          label: 'Last access'
+        operations:
+          label: Gweithrediad
+      filters:
+        status:
+          group_info:
+            label: Statws
+            group_items:
+              1:
+                title: Active
+              2:
+                title: Blocked
+        roles_target_id:
+          expose:
+            label: Role
+        permission:
+          expose:
+            label: Permission
+      title: People
+      use_more_text: more
+  page_1:
+    display_title: Page
+    display_options:
+      menu:
+        title: List
+      tab_options:
+        title: People
