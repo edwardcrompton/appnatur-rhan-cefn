@@ -9,6 +9,15 @@
             "email": "edward@ebwc.co.uk"
         }
     ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../porthtermau",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
    "require": {
         "php": ">=7.3",
         "edwardcrompton/porthtermau": "dev-main"
