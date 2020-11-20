@@ -34,3 +34,14 @@ be run in order of dependencies with this:
 If a migration does not show up when running `lando drush migrate:status` then
 check that all plugins exist and the modules that supply them are enabled. If
 the source plugin is missing, the migration will be filtered out from the list.
+
+## Development
+
+This module requires a custom composer package edwardcrompton/porthtermau in
+order to integrate with the Porth Termau API. To make the development workflow
+as efficient as possible, this packaged is symlinked from a local directory into
+the vendor folder as described [here](https://medium.com/pvtl/local-composer-package-development-47ac5c0e5bb4).
+
+This means that the package can be edited directly in the vendor folder. To
+commit changes, cd to the local source directory of the package and commit the
+changes.
