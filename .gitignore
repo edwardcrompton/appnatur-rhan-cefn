@@ -1,4 +1,5 @@
 vendor
 web/sites/default/files
 packages
+web/sites/default/settings.local.php
 
