@@ -19,7 +19,7 @@ version rather than to pull it in from packagist. This is done by adding a
 
 Note that the repository must be defined in the root composer.json file, not
 the one in the termau_migrate module where the edwardcrompton/porthtermau
-dependency is defined.
+dependency is defined. See https://getcomposer.org/doc/articles/troubleshooting.md#i-have-a-dependency-which-contains-a-repositories-definition-in-its-composer-json-but-it-seems-to-be-ignored-
 
 See this in the repositories section of ./composer.json:
 
@@ -42,3 +42,15 @@ above instead of pulling it from Packagist.
 
 When the package dependency is stable, this configuration can be removed and
 the dependency can be checked out from Packagist in the normal way.
+
+### API key
+
+Porth Termau requires an API key available from Bangor University. Add this key
+to your settings by putting this in settings.local.php:
+
+```
+$settings['termau_migrate_porth_termau_api_key'] = 'your key';
+```
+
+Replace _your key_ with the actual API key.
+
