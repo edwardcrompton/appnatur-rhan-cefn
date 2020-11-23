@@ -5,9 +5,7 @@ namespace Drupal\termau_migrate\Plugin\migrate\process;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\Row;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\termau_migrate\DataSourceApiInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Site\Settings;
 use PorthTermau\PorthTermauWrapper;
 
 /**
@@ -41,7 +39,7 @@ class TranslateName extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     // This will call a method from PorthTermau, e.g,
     $language = 'en';
-    $this->dataSourceApi->translate($value, $language);
+    $this->dataSourceApi->translateTerm($language, $value);
     return $value;
   }
 
@@ -53,7 +51,7 @@ class TranslateName extends ProcessPluginBase {
    */
   protected function createDataApi() {
     $options = [
-      'key' => '',
+      'key' => Settings::get('termau_migrate_porth_termau_api_key'),
       'referer' => 'http://llennatur.cymru',
     ];
     return new PorthTermauWrapper($options);
