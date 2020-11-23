@@ -8,7 +8,7 @@ use Drupal\migrate\Row;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\termau_migrate\DataSourceApiInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use PorthTermau\PorthTermau;
+use PorthTermau\PorthTermauWrapper;
 
 /**
  * Perform custom value transformations.
@@ -52,7 +52,11 @@ class TranslateName extends ProcessPluginBase {
    *   A PorthTermu API wrapper.
    */
   protected function createDataApi() {
-    return new PorthTermau();
+    $options = [
+      'key' => '',
+      'referer' => 'http://llennatur.cymru',
+    ];
+    return new PorthTermauWrapper($options);
   }
 
 }

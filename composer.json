@@ -16,6 +16,13 @@
         {
             "type": "path",
             "url": "web/modules/custom/termau_migrate"
+        },
+        {
+            "type": "path",
+            "url": "./packages/porthtermau",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
