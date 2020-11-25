@@ -4,4 +4,23 @@ config:
   webroot: web
   via: nginx
   database: mariadb
-  xdebug: true
+services:
+  appserver:
+    webroot: web
+    xdebug: true
+    config:
+      php: lando/xdebug.ini
+    overrides:
+      environment:
+        PHP_IDE_CONFIG: "serverName=appserver"
+tooling:
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug for nginx.
+    cmd: docker-php-ext-enable xdebug && pkill -o -USR2 php-fpm
+    user: root
+  xdebug-off:
+    service: appserver
+    description: Disable xdebug for nginx.
+    cmd: rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && pkill -o -USR2 php-fpm
+    user: root
