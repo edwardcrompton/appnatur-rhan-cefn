@@ -40,6 +40,13 @@ When Composer comes across the dependency on edwardcrompton/porthtermau in the
 termau_migrate/composer.json file, it will load it from the local path defined
 above instead of pulling it from Packagist.
 
+To install edwardcrompton/porthtermau for the first time having made the
+configuration changes above, run this from the project root:
+
+`lando composer install -d packages/porthtermau`
+
+`lando composer install`
+
 When the package dependency is stable, this configuration can be removed and
 the dependency can be checked out from Packagist in the normal way.
 
