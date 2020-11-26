@@ -4,7 +4,7 @@ description: Species migrations from Llen Natur data.
 source_type: CSV files
 
 # Species migrations for all languages use a CSV source file. This configuration
-# is shared between migrations in thr group.
+# is shared between migrations in the group.
 shared_configuration:
   source:
     plugin: termau_csv

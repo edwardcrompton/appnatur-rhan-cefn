@@ -37,9 +37,8 @@ class TranslateName extends ProcessPluginBase {
    * @{inheritdoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    // This will call a method from PorthTermau, e.g,
-    $language = 'en';
-    //return $this->dataSourceApi->translateTerm($language, $value);
+    // @todo: Instead of doing a lookup to the API, use the data we've already
+    // put in the source row to perform the translation.
     return $value;
   }
 
