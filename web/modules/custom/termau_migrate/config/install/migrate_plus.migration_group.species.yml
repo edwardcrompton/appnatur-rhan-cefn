@@ -3,13 +3,11 @@ label: Species migrations
 description: Species migrations from Llen Natur data.
 source_type: CSV files
 
-# Here we add any default configuration settings to be shared among all
-# migrations in the group. For this example, the source tables are in the
-# Drupal (default) database, but usually if your source data is in a
-# database it will be external.
+# Species migrations for all languages use a CSV source file. This configuration
+# is shared between migrations in thr group.
 shared_configuration:
   source:
-    plugin: csv
+    plugin: termau_csv
     # Full path to the file.
     path: '/app/web/modules/custom/termau_migrate/data/species.csv'
     # Column delimiter. Comma (,) by default.

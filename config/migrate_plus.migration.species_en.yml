@@ -1,0 +1,24 @@
+uuid: 21b8845b-57a1-4fa8-854e-a219146fdc21
+langcode: en
+status: true
+dependencies: {  }
+id: species_en
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: species
+label: 'Species node migration English'
+source: null
+process:
+  title:
+    plugin: translate_name
+    source: latin
+  field_scientific_name: latin
+  langcode:
+    plugin: default_value
+    default_value: en
+destination:
+  plugin: 'entity:node'
+  default_bundle: species
+migration_dependencies: null
