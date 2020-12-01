@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.species.body
+    - field.field.node.species.field_article_url
     - field.field.node.species.field_scientific_name
     - field.field.node.species.field_thumbnail_image
     - node.type.species
@@ -22,6 +23,14 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_article_url:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_scientific_name:
     weight: 102
