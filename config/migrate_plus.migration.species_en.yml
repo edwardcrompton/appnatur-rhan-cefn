@@ -9,11 +9,11 @@ cck_plugin_method: null
 migration_tags: null
 migration_group: species
 label: 'Species node migration English'
-source: null
+source:
+  constants:
+    language: en
 process:
-  title:
-    plugin: translate_name
-    source: latin
+  title: title
   field_scientific_name: latin
   langcode:
     plugin: default_value

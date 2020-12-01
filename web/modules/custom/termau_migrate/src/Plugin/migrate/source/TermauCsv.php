@@ -23,6 +23,7 @@ class TermauCsv extends CSV {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
     $this->api = $this->createDataApi();
+    $this->language = $configuration['constants']['language'];
   }
 
   /**
@@ -46,6 +47,11 @@ class TermauCsv extends CSV {
     parent::prepareRow($row);
     // Perform an API lookup and add this additional data to the source row.
     $term = $this->api->lookup($row->getSourceProperty('latin'));
+    // Add the whole term object to the row in case we need it.
     $row->setSourceProperty('term', $term);
+    // Break out the title from the term object and add it as a source property.
+    $row->setSourceProperty('title', $term->getTitle($this->language));
+    // Get the article source URL.
+    $row->setSourceProperty('url', $term->getUrl());
   }
 }

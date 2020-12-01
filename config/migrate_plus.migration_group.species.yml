@@ -12,7 +12,7 @@ source_type: 'CSV files'
 module: null
 shared_configuration:
   source:
-    plugin: csv
+    plugin: termau_csv
     path: /app/web/modules/custom/termau_migrate/data/species.csv
     delimiter: ','
     enclosure: '"'
