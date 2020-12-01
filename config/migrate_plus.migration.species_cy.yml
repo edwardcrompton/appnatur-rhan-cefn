@@ -10,17 +10,18 @@ migration_tags: null
 migration_group: species
 label: 'Species node migration Welsh'
 source:
-  plugin: csv
+  plugin: termau_csv
+  constants:
+    language: cy
 process:
-  title: latin
-  field_scientific_name: latin
   nid:
     plugin: migration_lookup
     source: id
     migration: species_en
-  langcode:
-    plugin: default_value
-    default_value: cy
+  title: title
+  field_scientific_name: latin
+  field_article_url: url
+  langcode: constants/language
   content_translation_source: en
 destination:
   plugin: 'entity:node'
