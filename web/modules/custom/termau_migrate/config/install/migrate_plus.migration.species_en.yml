@@ -2,6 +2,7 @@ id: species_en
 label: 'Species node migration English'
 migration_group: species
 source:
+  plugin: termau_csv
   constants:
     language: 'en'
 process:

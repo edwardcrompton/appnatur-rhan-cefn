@@ -10,14 +10,14 @@ migration_tags: null
 migration_group: species
 label: 'Species node migration English'
 source:
+  plugin: termau_csv
   constants:
     language: en
 process:
   title: title
   field_scientific_name: latin
-  langcode:
-    plugin: default_value
-    default_value: en
+  field_article_url: url
+  langcode: constants/language
 destination:
   plugin: 'entity:node'
   default_bundle: species
