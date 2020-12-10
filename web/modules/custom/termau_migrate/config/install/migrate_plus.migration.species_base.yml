@@ -1,0 +1,52 @@
+id: species_base
+label: 'Species base migration'
+source_type: CSV files
+
+source:
+  plugin: termau_csv
+  # Full path to the file.
+  path: '/app/web/modules/custom/termau_migrate/data/species.csv'
+  # Column delimiter. Comma (,) by default.
+  delimiter: ','
+  # Field enclosure. Double quotation marks (") by default.
+  enclosure: '"'
+  # The row to be used as the CSV header (indexed from 0),
+  # or null if there is no header row.
+  header_offset: 0
+  # The column(s) to use as a key. Each column specified will
+  # create an index in the migration table and too many columns
+  # may throw an index size error.
+  ids:
+    - id
+  fields:
+    0:
+      name: id
+      label: 'Unique Id'
+    1:
+      name: latin
+      label: 'Latin name'
+process:
+  title: title
+  scientific_name: latin
+  url: url
+
+destination:
+  plugin: table
+  id_fields:
+    id:
+      type: integer
+      use_auto_increment: true
+  fields:
+    scientific_name: latin
+    term: term
+    name_cy: title
+    name_en: title
+    url: url
+
+# As with the migration configuration (see beer_term), we add an enforced
+# dependency so the migration_group configuration will be removed on module
+# uninstall.
+dependencies:
+  enforced:
+    module:
+      - migrate_source_csv
