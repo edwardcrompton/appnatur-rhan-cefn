@@ -32,6 +32,7 @@ process:
 
 destination:
   plugin: table
+  table_name: termau_migrate_porthtermau_data
   id_fields:
     id:
       type: integer
