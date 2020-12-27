@@ -21,12 +21,6 @@ function termau_migrate_schema() {
         'scientific_name' => [
           'type' => 'varchar',
           'length' => 128,
-          'not null' => TRUE,
-          'default' => '',
-        ],
-        'term' => [
-          'type' => 'varchar',
-          'length' => 512,
         ],
         'name_cy' => [
           'type' => 'varchar',
@@ -36,6 +30,10 @@ function termau_migrate_schema() {
           'type' => 'varchar',
           'length' => 128,
         ],
+        'url' => [
+          'type' => 'varchar',
+          'length' => 128,
+        ]
       ],
       'primary key' => [
         'id',
