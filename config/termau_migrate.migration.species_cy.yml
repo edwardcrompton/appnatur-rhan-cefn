@@ -1,18 +1,20 @@
 id: species_cy
 migration_group: species
 label: 'Species node migration Welsh'
+source_type: 'CSV files'
 source:
-  constants:
-    language: 'cy'
+  plugin: csv
 process:
+  title: latin
+  field_scientific_name: latin
   nid:
     plugin: migration_lookup
     source: id
     migration: species_en
-  title: name_cy
-  field_scientific_name: scientific_name
-  langcode: constants/language
-  content_translation_source: 'en'
+  langcode:
+    plugin: default_value
+    default_value: cy
+  content_translation_source: en
 destination:
   plugin: 'entity:node'
   default_bundle: species

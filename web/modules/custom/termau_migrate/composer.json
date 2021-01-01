@@ -1,0 +1,17 @@
+{
+    "name": "drupal/termau_migrate",
+    "description": "Custom migrate scripts for Porth Termau data",
+    "type": "drupal-custom-module",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Edward Crompton",
+            "email": "edward@ebwc.co.uk"
+        }
+    ],
+   "require": {
+        "php": ">=7.3",
+        "edwardcrompton/porthtermau": "dev-main"
+    },
+    "minimum-stability": "dev"
+}

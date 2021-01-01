@@ -4,9 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.species.body
+    - field.field.node.species.field_article_url
     - field.field.node.species.field_scientific_name
+    - field.field.node.species.field_thumbnail_image
+    - image.style.thumbnail
     - node.type.species
   module:
+    - image
     - path
     - text
 id: node.species.default
@@ -30,6 +34,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_article_url:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_scientific_name:
     weight: 9
     settings:
@@ -37,6 +49,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_thumbnail_image:
+    weight: 26
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   langcode:
     type: language_select

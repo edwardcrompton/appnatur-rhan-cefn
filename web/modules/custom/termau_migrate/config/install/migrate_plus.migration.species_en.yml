@@ -1,14 +1,16 @@
 id: species_en
 label: 'Species node migration English'
 migration_group: species
+source:
+  constants:
+    language: 'en'
 process:
-  title:
-    plugin: translate_name
-    source: latin
-  field_scientific_name: latin
-  langcode:
-     plugin: default_value
-     default_value: 'en'
+  title: name_en
+  field_scientific_name: scientific_name
+  langcode: constants/language
 destination:
   plugin: 'entity:node'
   default_bundle: species
+migration_dependencies:
+  required:
+    - species_base

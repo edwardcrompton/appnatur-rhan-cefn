@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ *   Install hooks for termau_migrate module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function termau_migrate_schema() {
+  return [
+    'termau_migrate_porthtermau_data' => [
+      'description' => 'Store API reponses during migration to economise on API calls.',
+      'fields' => [
+        'id' => [
+          'type' => 'serial',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ],
+        'scientific_name' => [
+          'type' => 'varchar',
+          'length' => 128,
+        ],
+        'name_cy' => [
+          'type' => 'varchar',
+          'length' => 128,
+        ],
+        'name_en' => [
+          'type' => 'varchar',
+          'length' => 128,
+        ],
+        'url' => [
+          'type' => 'varchar',
+          'length' => 128,
+        ]
+      ],
+      'primary key' => [
+        'id',
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_update().
+ */
+function termau_migrate_update_9001() {
+  drupal_install_schema('termau_migrate');
+}

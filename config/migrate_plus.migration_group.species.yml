@@ -1,0 +1,28 @@
+uuid: 1482ae60-5cbf-470f-95fb-bfd4e0463fa6
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - migrate_source_csv
+id: species
+label: 'Species migrations'
+description: 'Species migrations from Llen Natur data.'
+source_type: 'CSV files'
+module: null
+shared_configuration:
+  source:
+    plugin: termau_csv
+    path: /app/web/modules/custom/termau_migrate/data/species.csv
+    delimiter: ','
+    enclosure: '"'
+    header_offset: 0
+    ids:
+      - id
+    fields:
+      -
+        name: id
+        label: 'Unique Id'
+      -
+        name: latin
+        label: 'Latin name'

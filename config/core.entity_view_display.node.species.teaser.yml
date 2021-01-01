@@ -5,7 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.species.body
+    - field.field.node.species.field_article_url
     - field.field.node.species.field_scientific_name
+    - field.field.node.species.field_thumbnail_image
     - node.type.species
   module:
     - text
@@ -29,5 +31,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_article_url: true
   field_scientific_name: true
+  field_thumbnail_image: true
   langcode: true

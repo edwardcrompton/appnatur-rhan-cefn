@@ -1,5 +1,5 @@
 {
-    "name": "drupal/recommended-project",
+    "name": "edwardcrompton/appnatur-rhan-cefn",
     "description": "Project template for Drupal 9 projects with a relocated document root",
     "type": "project",
     "license": "GPL-2.0-or-later",
@@ -12,6 +12,17 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "path",
+            "url": "web/modules/custom/termau_migrate"
+        },
+        {
+            "type": "path",
+            "url": "./packages/porthtermau",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
@@ -22,6 +33,7 @@
         "drupal/migrate_plus": "^5.1",
         "drupal/migrate_source_csv": "^3.4",
         "drupal/migrate_tools": "^5.0",
+        "drupal/termau_migrate": "dev-main",
         "drush/drush": "^10.3"
     },
     "conflict": {
