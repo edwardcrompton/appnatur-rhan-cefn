@@ -1,9 +1,7 @@
 id: species_cy
 migration_group: species
 label: 'Species node migration Welsh'
-source_type: CSV files
 source:
-  plugin: termau_csv
   constants:
     language: 'cy'
 process:
@@ -11,9 +9,8 @@ process:
     plugin: migration_lookup
     source: id
     migration: species_en
-  title: title
-  field_scientific_name: latin
-  field_article_url: url
+  title: name_cy
+  field_scientific_name: scientific_name
   langcode: constants/language
   content_translation_source: 'en'
 destination:
