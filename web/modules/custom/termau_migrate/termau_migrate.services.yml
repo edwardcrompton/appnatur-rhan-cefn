@@ -1,0 +1,3 @@
+services:
+  termau_migrate.wikimediaapi:
+    class: Drupal\termau_migrate\WikiMediaApi

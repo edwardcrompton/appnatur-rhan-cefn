@@ -4,6 +4,8 @@ namespace Drupal\termau_migrate\Plugin\migrate\source;
 
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
 use Drupal\migrate\Row;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\Core\State\StateInterface;
 
 /**
  * Use a prepopulated table as the source.
@@ -13,6 +15,14 @@ use Drupal\migrate\Row;
  * )
  */
 class TermauTable extends SqlBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, StateInterface $state) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $migration, $state);
+    $this->api = \Drupal::service('termau_migrate.wikimediaapi');
+  }
 
   /**
    * {@inheritdoc}
@@ -55,11 +65,15 @@ class TermauTable extends SqlBase {
       ],
     ];
   }
-  
+
   /**
    * {@inheritdoc}
    */
   public function prepareRow(Row $row) {
     parent::prepareRow($row);
+    $title = ''; // The title in relevant language.
+    $langcode = '';
+    $this->api->fetchIntroduction($title, $langcode);
+    // @todo: Add this introduction to the row.
   }
 }
