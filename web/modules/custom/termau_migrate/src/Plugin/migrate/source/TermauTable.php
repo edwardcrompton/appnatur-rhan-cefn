@@ -21,7 +21,8 @@ class TermauTable extends SqlBase {
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, StateInterface $state) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration, $state);
-    $this->api = \Drupal::service('termau_migrate.wikimediaapi');
+    $this->api = \Drupal::service('termau_migrate.wikiapi');
+    $this->api->setLangCode('en');
   }
 
   /**
@@ -50,18 +51,9 @@ class TermauTable extends SqlBase {
       'name_cy' => $this->t('name_cy'),
       'name_en' => $this->t('name_en'),
       'url' => $this->t('url'),
-      'intro' => $this->getIntro(),
+      'intro' => $this->t('intro'),
     ];
     return $fields;
-  }
-
-  /**
-   * @return string
-   *   The intro from the wikipedia article.
-   */
-  public function getIntro() {
-    // Get the intro from wikipedia using
-    Drupal::service('termau_migrate.wikiapi');
   }
 
   /**
@@ -83,7 +75,8 @@ class TermauTable extends SqlBase {
     parent::prepareRow($row);
     $title = ''; // The title in relevant language.
     $langcode = '';
-    $this->api->fetchIntroduction($title, $langcode);
+    $row->intro = $this->api->getIntro('fox');
+    //print_r($row->intro);
     // @todo: Add this introduction to the row.
   }
 }

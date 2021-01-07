@@ -2,10 +2,10 @@
 
 namespace Drupal\termau_migrate;
 
-use \Drupal\Core\Http\ClientFactory;
+use Drupal\Core\Http\ClientFactory;
 
 /**
- * Interfaces with the Wikipedia API to fetch data.
+ * Fetches data from the wiki API.
  */
 class WikipediaApi {
 
@@ -22,6 +22,8 @@ class WikipediaApi {
     'prop' => 'extracts',
     'format' => 'json',
     'exintro' => '',
+    'explaintext' => '',
+    'redirects' => 1,
   ];
 
   /**
@@ -29,20 +31,9 @@ class WikipediaApi {
    * @param type $clientFactory
    */
   public function __construct(ClientFactory $clientFactory) {
-    $this->langCode = 'en';
-    // @todo: Need a way of updating the base_uri when the langcode is changed
-    // here.
-    try {
-      $this->client = $clientFactory->fromOptions([
-        'base_uri' => 'https://' . $this->langCode . static::$apiUrl,
-        'headers' => [
-          'Content-Type' => 'application/json',
-        ],
-      ]);
-    }
-    catch (RequestException $e) {
-      watchdog_exception('termau_migrate', $e);
-    }
+    $this->clientFactory = $clientFactory;
+    // Get client with default configuration.
+    $this->client = $clientFactory->fromOptions();
   }
 
   /**
@@ -52,10 +43,24 @@ class WikipediaApi {
    */
   public function setLangCode(string $langCode) {
     $this->langCode = $langCode;
+    $this->setBaseUri($this->langCode);
   }
 
+  protected function setBaseUri($langCode) {
+    $this->uri = 'https://' . $langCode . static::$apiUrl;
+  }
 
-  public function getIntro() {
-
+  /**
+   *
+   */
+  public function getIntro($title) {
+    $query = array_merge(static::$apiQuery, ['titles' => $title]);
+    $response = $this->client->request('GET', $this->uri, [
+      'headers' => [
+        'Content-Type' => 'application/json',
+      ],
+      'query' => $query,
+    ]);
+    return $response;
   }
 }
