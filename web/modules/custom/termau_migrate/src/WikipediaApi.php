@@ -31,7 +31,6 @@ class WikipediaApi {
    * @param type $clientFactory
    */
   public function __construct(ClientFactory $clientFactory) {
-    $this->clientFactory = $clientFactory;
     // Get client with default configuration.
     $this->client = $clientFactory->fromOptions();
   }
