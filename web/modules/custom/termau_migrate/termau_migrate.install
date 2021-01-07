@@ -43,7 +43,7 @@ function termau_migrate_schema() {
 }
 
 /**
- * Implements hook_update().
+ * Create a database table for use during content migration.
  */
 function termau_migrate_update_9001() {
   drupal_install_schema('termau_migrate');

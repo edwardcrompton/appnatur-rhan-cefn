@@ -50,8 +50,18 @@ class TermauTable extends SqlBase {
       'name_cy' => $this->t('name_cy'),
       'name_en' => $this->t('name_en'),
       'url' => $this->t('url'),
+      'intro' => $this->getIntro(),
     ];
     return $fields;
+  }
+
+  /**
+   * @return string
+   *   The intro from the wikipedia article.
+   */
+  public function getIntro() {
+    // Get the intro from wikipedia using
+    Drupal::service('termau_migrate.wikiapi');
   }
 
   /**
