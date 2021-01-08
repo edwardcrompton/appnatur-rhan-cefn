@@ -6,8 +6,9 @@ source:
     language: 'en'
 process:
   title: name_en
-  field_scientific_name: scientific_name
   langcode: constants/language
+  field_scientific_name: scientific_name
+  body: intro
 destination:
   plugin: 'entity:node'
   default_bundle: species

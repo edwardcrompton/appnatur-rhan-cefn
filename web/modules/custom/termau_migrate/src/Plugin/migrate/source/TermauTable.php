@@ -21,8 +21,9 @@ class TermauTable extends SqlBase {
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, StateInterface $state) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration, $state);
+    $this->langCode = $configuration['constants']['language'];
     $this->api = \Drupal::service('termau_migrate.wikiapi');
-    $this->api->setLangCode('en');
+    $this->api->setLangCode($this->langCode);
   }
 
   /**
@@ -73,10 +74,7 @@ class TermauTable extends SqlBase {
    */
   public function prepareRow(Row $row) {
     parent::prepareRow($row);
-    $title = ''; // The title in relevant language.
-    $langcode = '';
-    $row->intro = $this->api->getIntro('fox');
-    //print_r($row->intro);
-    // @todo: Add this introduction to the row.
+    $title = $row->getSourceProperty('name_' . $this->langCode);
+    $row->setSourceProperty('intro', $this->api->getIntro($title));
   }
 }
