@@ -10,12 +10,12 @@ use Drupal\Core\Http\ClientFactory;
 class WikipediaApi {
 
   /**
-   *
+   * The URL of the API without the language subdomain.
    */
   static $apiUrl = '.wikipedia.org/w/api.php';
 
   /**
-   *
+   * The default API query parameters.
    */
   static $apiQuery = [
     'action' => 'query',
@@ -84,6 +84,10 @@ class WikipediaApi {
    *   static::$apiQuery.
    */
   protected function getJsonResponse(array $query) {
+    if (empty($this->langCode)) {
+      throw new \Exception('langCode property must be set with setLangCode() before making a request.');
+    }
+
     $query = array_merge(static::$apiQuery, $query);
     $response = $this->client->request('GET', $this->uri, [
       'headers' => [

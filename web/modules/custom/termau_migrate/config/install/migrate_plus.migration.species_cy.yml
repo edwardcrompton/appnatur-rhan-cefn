@@ -10,8 +10,9 @@ process:
     source: id
     migration: species_en
   title: name_cy
-  field_scientific_name: scientific_name
   langcode: constants/language
+  field_scientific_name: scientific_name
+  body: intro
   content_translation_source: 'en'
 destination:
   plugin: 'entity:node'
