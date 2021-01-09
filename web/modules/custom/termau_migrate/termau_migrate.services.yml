@@ -1,4 +1,4 @@
 services:
-  termau_migrate.wikiapi:
-    class: \Drupal\termau_migrate\WikipediaApi
+  termau_migrate.wikiapifactory:
+    class: \Drupal\termau_migrate\WikiApiFactory
     arguments: ['@http_client_factory']

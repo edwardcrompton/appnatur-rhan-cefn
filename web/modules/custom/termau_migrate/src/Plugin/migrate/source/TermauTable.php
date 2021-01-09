@@ -22,8 +22,8 @@ class TermauTable extends SqlBase {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, StateInterface $state) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration, $state);
     $this->langCode = $configuration['constants']['language'];
-    $this->api = \Drupal::service('termau_migrate.wikiapi');
-    $this->api->setLangCode($this->langCode);
+    $apiFactory = \Drupal::service('termau_migrate.wikiapifactory');
+    $this->api = $apiFactory->create($this->langCode);
   }
 
   /**
