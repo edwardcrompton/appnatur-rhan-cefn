@@ -2,12 +2,12 @@
 
 namespace Drupal\termau_migrate;
 
-use Drupal\Core\Http\ClientFactory;
+use GuzzleHttp\Client;
 
 /**
  * Fetches data from the wiki API.
  */
-class WikipediaApi {
+class WikiApi {
 
   /**
    * The URL of the API without the language subdomain.
@@ -29,18 +29,10 @@ class WikipediaApi {
   /**
    * @param type $clientFactory
    */
-  public function __construct(ClientFactory $clientFactory) {
+  public function __construct($langCode, Client $client) {
     // Get client with default configuration.
-    $this->client = $clientFactory->fromOptions();
-  }
-
-  /**
-   * @param string $langCode
-   *   The two letter language code to identify the language when querying wiki.
-   */
-  public function setLangCode(string $langCode) {
-    $this->langCode = $langCode;
-    $this->setBaseUri($this->langCode);
+    $this->client = $client;
+    $this->setBaseUri($langCode);
   }
 
   /**
@@ -84,10 +76,6 @@ class WikipediaApi {
    *   static::$apiQuery.
    */
   protected function getJsonResponse(array $query) {
-    if (empty($this->langCode)) {
-      throw new \Exception('langCode property must be set with setLangCode() before making a request.');
-    }
-
     $query = array_merge(static::$apiQuery, $query);
     $response = $this->client->request('GET', $this->uri, [
       'headers' => [
