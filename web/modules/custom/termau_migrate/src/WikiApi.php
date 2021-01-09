@@ -36,35 +36,29 @@ class WikiApi {
   }
 
   /**
-   * @param string $langCode
-   *   The two letter language code to use in the base Uri.
-   */
-  protected function setBaseUri($langCode) {
-    $this->uri = 'https://' . $langCode . static::$apiUrl;
-  }
-
-  /**
    * @param string $title
    *   The title of the article to fetch from the wiki.
    *
-   * @return string
-   *   The introduction text from the article.
+   * @return \Drupal\termau_migrate\Article
    */
-  public function getIntro($title) {
-    $article = $this->getArticle($title);
-    return $article['extract'];
-  }
-
-  /**
-   * @param string $title
-   *   The title of the article to fetch from the wiki.
-   *
-   * @return array
-   *   An array of properties of the article.
-   */
-  protected function getArticle(string $title) {
+  public function getArticle(string $title) {
     $response = $this->getJsonResponse(['titles' => $title]);
-    return reset($response['query']['pages']);
+    return new Article(reset($response['query']['pages']));
+  }
+
+  /**
+   * @param string $title
+   *   The title of the article to fetch the images for.
+   *
+   * @return \Drupal\termau_migrate\Images
+   */
+  public function getImages(string $title) {
+    $response = $this->getJsonResponse([
+      'titles' => $title,
+      'prop' => 'pageimages',
+      'pithumbsize' => 100,
+    ]);
+    return new Images(reset($response['query']['pages']));
   }
 
   /**
@@ -86,4 +80,13 @@ class WikiApi {
     ]);
     return json_decode($response->getBody(), TRUE);
   }
+
+  /**
+   * @param string $langCode
+   *   The two letter language code to use in the base Uri.
+   */
+  protected function setBaseUri($langCode) {
+    $this->uri = 'https://' . $langCode . static::$apiUrl;
+  }
+
 }

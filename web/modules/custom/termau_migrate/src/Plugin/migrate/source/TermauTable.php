@@ -75,6 +75,9 @@ class TermauTable extends SqlBase {
   public function prepareRow(Row $row) {
     parent::prepareRow($row);
     $title = $row->getSourceProperty('name_' . $this->langCode);
-    $row->setSourceProperty('intro', $this->api->getIntro($title));
+    $article = $this->api->getArticle($title);
+    $row->setSourceProperty('intro', $article->getIntro());
+    $images = $this->api->getImages($title);
+    $row->setSourceProperty('image_url', $images->getMainImage());
   }
 }
