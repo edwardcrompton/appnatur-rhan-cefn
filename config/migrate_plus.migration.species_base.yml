@@ -1,0 +1,48 @@
+uuid: bce58249-60c9-48e1-982b-7df0e0f8436f
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - migrate_source_csv
+id: species_base
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Base species node migration using Porthtermau data'
+source:
+  plugin: termau_csv
+  path: /app/web/modules/custom/termau_migrate/data/species.csv
+  delimiter: ','
+  enclosure: '"'
+  header_offset: 0
+  ids:
+    - id
+  fields:
+    -
+      name: id
+      label: 'Unique Id'
+    -
+      name: latin
+      label: 'Latin name'
+process:
+  id: id
+  scientific_name: latin
+  name_cy: name_cy
+  name_en: name_en
+  url: url
+destination:
+  plugin: table
+  table_name: termau_migrate_porthtermau_data
+  id_fields:
+    id:
+      type: integer
+  fields:
+    id: id
+    scientific_name: latin
+    name_cy: name_cy
+    name_en: name_en
+    url: url
+migration_dependencies: null

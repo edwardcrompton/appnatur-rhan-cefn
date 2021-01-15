@@ -1,4 +1,4 @@
-uuid: 21b8845b-57a1-4fa8-854e-a219146fdc21
+uuid: 6bdb3624-e07b-4661-86eb-93da1088767b
 langcode: en
 status: true
 dependencies: {  }
@@ -10,15 +10,19 @@ migration_tags: null
 migration_group: species
 label: 'Species node migration English'
 source:
-  plugin: termau_csv
   constants:
     language: en
 process:
-  title: title
-  field_scientific_name: latin
-  field_article_url: url
+  title: name_en
   langcode: constants/language
+  field_scientific_name: scientific_name
+  body: intro
+  field_image:
+    plugin: file_import
+    source: image
 destination:
   plugin: 'entity:node'
   default_bundle: species
-migration_dependencies: null
+migration_dependencies:
+  required:
+    - species_base

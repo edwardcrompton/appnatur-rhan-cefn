@@ -1,4 +1,4 @@
-uuid: 4807cffe-9f5e-45f1-867f-161cf6ac6b0e
+uuid: 3fa6c6e3-ea8e-4d4d-828c-8e0ff907cd68
 langcode: en
 status: true
 dependencies: {  }
@@ -10,7 +10,6 @@ migration_tags: null
 migration_group: species
 label: 'Species node migration Welsh'
 source:
-  plugin: termau_csv
   constants:
     language: cy
 process:
@@ -18,10 +17,10 @@ process:
     plugin: migration_lookup
     source: id
     migration: species_en
-  title: title
-  field_scientific_name: latin
-  field_article_url: url
+  title: name_cy
   langcode: constants/language
+  field_scientific_name: scientific_name
+  body: intro
   content_translation_source: en
 destination:
   plugin: 'entity:node'
