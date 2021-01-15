@@ -19,7 +19,7 @@ class WikiApi {
    */
   static $apiQuery = [
     'action' => 'query',
-    'prop' => 'extracts',
+    'prop' => 'extracts|pageimages',
     'format' => 'json',
     'exintro' => '',
     'explaintext' => '',
@@ -44,21 +44,6 @@ class WikiApi {
   public function getArticle(string $title) {
     $response = $this->getJsonResponse(['titles' => $title]);
     return new Article(reset($response['query']['pages']));
-  }
-
-  /**
-   * @param string $title
-   *   The title of the article to fetch the images for.
-   *
-   * @return \Drupal\termau_migrate\Images
-   */
-  public function getImages(string $title) {
-    $response = $this->getJsonResponse([
-      'titles' => $title,
-      'prop' => 'pageimages',
-      'pithumbsize' => 100,
-    ]);
-    return new Images(reset($response['query']['pages']));
   }
 
   /**

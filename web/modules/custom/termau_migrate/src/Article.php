@@ -29,4 +29,15 @@ class Article {
     return $this->article['extract'];
   }
 
+  /**
+   * @return string
+   *   The main image from the article.
+   */
+  public function getMainImage() {
+    $thumbUrl = $this->article['thumbnail']['source'];
+    $thumbUrl = preg_replace('/\/thumb/', '', $thumbUrl);
+    $imageUrl = preg_replace('/\/[^\/]*$/', '', $thumbUrl);
+    return $imageUrl;
+  }
+
 }

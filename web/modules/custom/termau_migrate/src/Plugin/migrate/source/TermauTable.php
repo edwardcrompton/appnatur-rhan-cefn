@@ -77,7 +77,6 @@ class TermauTable extends SqlBase {
     $title = $row->getSourceProperty('name_' . $this->langCode);
     $article = $this->api->getArticle($title);
     $row->setSourceProperty('intro', $article->getIntro());
-    $images = $this->api->getImages($title);
-    $row->setSourceProperty('image_url', $images->getMainImage());
+    $row->setSourceProperty('image_url', $article->getMainImage());
   }
 }
