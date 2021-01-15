@@ -9,6 +9,9 @@ process:
   langcode: constants/language
   field_scientific_name: scientific_name
   body: intro
+  field_image:
+    plugin: file_import
+    source: image
 destination:
   plugin: 'entity:node'
   default_bundle: species
