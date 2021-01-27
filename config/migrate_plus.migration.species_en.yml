@@ -1,4 +1,4 @@
-uuid: 6bdb3624-e07b-4661-86eb-93da1088767b
+uuid: 21b8845b-57a1-4fa8-854e-a219146fdc21
 langcode: en
 status: true
 dependencies: {  }
@@ -12,14 +12,16 @@ label: 'Species node migration English'
 source:
   constants:
     language: en
+    file_destination: 'public://images/'
 process:
   title: name_en
   langcode: constants/language
   field_scientific_name: scientific_name
   body: intro
   field_image:
-    plugin: file_import
+    plugin: image_import
     source: image
+    destination: constants/file_destination
 destination:
   plugin: 'entity:node'
   default_bundle: species

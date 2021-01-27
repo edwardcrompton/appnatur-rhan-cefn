@@ -1,0 +1,17 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Ailosod
+      fields:
+        type:
+          label: Math
+        message:
+          label: Neges
+        link:
+          label: Gweithrediad
+      filters:
+        type:
+          expose:
+            label: Math

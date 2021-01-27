@@ -1,0 +1,20 @@
+label: Sylwadau
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Ailosod
+      fields:
+        operations:
+          label: Gweithrediad
+      title: Sylwadau
+  page_published:
+    display_options:
+      menu:
+        title: Sylwadau
+  page_unapproved:
+    display_options:
+      fields:
+        operations:
+          label: Gweithrediad

@@ -1,0 +1,19 @@
+uuid: 829523f2-6b5b-4882-9f45-15a341ae06db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_scientific_name
+    - node.type.species
+id: node.species.field_scientific_name
+field_name: field_scientific_name
+entity_type: node
+bundle: species
+label: 'Scientific name'
+description: 'The scientific identifier of the species'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

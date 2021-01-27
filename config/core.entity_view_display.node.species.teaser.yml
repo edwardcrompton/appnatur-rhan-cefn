@@ -1,0 +1,37 @@
+uuid: 8edfd89a-b637-4b11-ad1c-e62f2d672452
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.species.body
+    - field.field.node.species.field_article_url
+    - field.field.node.species.field_scientific_name
+    - field.field.node.species.field_thumbnail_image
+    - node.type.species
+  module:
+    - text
+    - user
+id: node.species.teaser
+targetEntityType: node
+bundle: species
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_article_url: true
+  field_scientific_name: true
+  field_thumbnail_image: true
+  langcode: true
