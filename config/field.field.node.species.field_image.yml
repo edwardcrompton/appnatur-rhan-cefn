@@ -1,18 +1,25 @@
-uuid: 41f0e913-544e-4321-bb12-c52611017a07
+uuid: 4e1ccaba-dfa0-4967-91bb-1d1cd395ac96
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_thumbnail_image
+    - field.storage.node.field_image
     - node.type.species
   module:
+    - content_translation
     - image
-id: node.species.field_thumbnail_image
-field_name: field_thumbnail_image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
+id: node.species.field_image
+field_name: field_image
 entity_type: node
 bundle: species
-label: Thumbnail
-description: 'A thumbnail image for the species'
+label: Image
+description: ''
 required: false
 translatable: true
 default_value: {  }
