@@ -12,7 +12,7 @@ process:
   body: intro
   field_image:
     plugin: image_import
-    source: image
+    source: image_url
     destination: 'constants/file_destination'
 destination:
   plugin: 'entity:node'

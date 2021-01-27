@@ -51,7 +51,8 @@ class TermauTable extends SqlBase {
       'scientific_name' => $this->t('scientific_name'),
       'name_cy' => $this->t('name_cy'),
       'name_en' => $this->t('name_en'),
-      'url' => $this->t('url'),
+      'article_url' => $this->t('article_url'),
+      'image_url' => $this->t('image_url'),
       'intro' => $this->t('intro'),
     ];
     return $fields;

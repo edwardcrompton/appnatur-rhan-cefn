@@ -8,8 +8,10 @@ dependencies:
     - field.field.node.species.field_article_url
     - field.field.node.species.field_image
     - field.field.node.species.field_scientific_name
+    - image.style.medium
     - node.type.species
   module:
+    - image
     - text
     - user
 id: node.species.teaser
@@ -20,18 +22,26 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 2
     settings:
       trim_length: 600
     third_party_settings: {  }
     region: content
+  field_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: content
+    third_party_settings: {  }
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_article_url: true
-  field_image: true
   field_scientific_name: true
   langcode: true
