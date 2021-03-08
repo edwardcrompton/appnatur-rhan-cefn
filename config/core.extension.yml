@@ -38,9 +38,9 @@ module:
   rdf: 0
   search: 0
   shortcut: 0
+  species_migrate: 0
   system: 0
   taxonomy: 0
-  termau_migrate: 0
   text: 0
   toolbar: 0
   tour: 0
