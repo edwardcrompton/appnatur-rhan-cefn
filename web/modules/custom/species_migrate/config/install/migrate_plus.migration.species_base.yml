@@ -1,0 +1,35 @@
+id: species_base
+label: 'Base species node migration from a list of scientific names'
+source:
+  plugin: species_csv
+  # Full path to the file.
+  path: '/app/web/modules/custom/species_migrate/data/trees.csv'
+  # Column delimiter. Comma (,) by default.
+  delimiter: ','
+  # Field enclosure. Double quotation marks (") by default.
+  enclosure: '"'
+  # The row to be used as the CSV header (indexed from 0),
+  # or null if there is no header row.
+  header_offset: 0
+  # The column(s) to use as a key. Each column specified will
+  # create an index in the migration table and too many columns
+  # may throw an index size error.
+  ids:
+    - id
+  fields:
+    0:
+      name: id
+      label: 'Unique Id'
+    1:
+      name: latin
+      label: 'Latin name'
+process:
+  id: id
+  scientific_name: latin
+  identifier_cy: identifier_cy
+  identifier_en: identifier_en
+destination:
+  plugin: yaml
+  id_fields:
+    id:
+      type: integer
